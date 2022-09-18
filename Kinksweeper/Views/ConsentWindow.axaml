@@ -1,0 +1,40 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Kinksweeper.Views.ConsentWindow"
+        Title="ConsentWindow"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        Height="150" Width="250"
+        MinWidth="250" MaxWidth="250"
+        MinHeight="150" MaxHeight="150">
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.85" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <StackPanel Margin="10,50,10,0" HorizontalAlignment="Center">
+            <TextBlock 
+                TextWrapping="Wrap" 
+                TextAlignment="Center" 
+                HorizontalAlignment="Center" 
+                Text="By acknowledging this you agree that you are 18 years or older." />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                <Button Margin="5" Name="Agree" Content="Agree" Command="{Binding Agree}" HorizontalAlignment="Center"></Button>
+                <Button Margin="5" Name="Decline" Content="Decline" Command="{Binding Decline}" HorizontalAlignment="Center"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Panel>
+</Window>

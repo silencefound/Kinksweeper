@@ -1,0 +1,99 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Kinksweeper.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Kinksweeper.Views.EndgameWindow"
+        Title="Game End"
+        Width="NaN" Height="NaN"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        WindowStartupLocation="CenterScreen">
+    <Design.DataContext>
+        <vm:EndgameViewModel />
+    </Design.DataContext>
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.95" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+
+        <DockPanel VerticalAlignment="Stretch" Height="NaN">
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="20" Height="100" Width="NaN">
+                <TextBlock
+                    Height="30"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Text="Game Finished!" />
+                <TextBlock
+                    Height="50"
+                    FontSize="20"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Text="{Binding DebugInfo}" />
+            </StackPanel>
+            <StackPanel
+                DockPanel.Dock="Bottom"
+                Margin="20"
+                Height="120"
+                Width="NaN"
+                Orientation="Vertical"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+                <TextBox
+                    IsReadOnly="True"
+                    TextAlignment="Center"
+                    Width="NaN"
+                    Height="25"
+                    VerticalAlignment="Top"
+                    Text="{Binding OriginalPostURL}"
+                />
+                <StackPanel
+                    DockPanel.Dock="Bottom"
+                    Margin="20"
+                    Height="50"
+                    Width="NaN"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="10"
+                        Command="{Binding LeftButton }"
+                        HotKey="Left"
+                        IsEnabled="{Binding LeftButtonEnabled}">
+                        <PathIcon Data="{StaticResource arrow_left_regular}" />
+                    </Button>
+                    <Button
+                        Margin="10"
+                        Content="Restart"
+                        Command="{Binding RestartGameCommand}" />
+                    <Button
+                        Margin="10"
+                        HotKey="Right"
+                        Command="{Binding RightButton}"
+                        IsEnabled="{Binding RightButtonEnabled}">
+                        <PathIcon Data="{StaticResource arrow_right_regular}" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <Viewbox Stretch="Uniform" Height="NaN" Width="NaN">
+                <Image
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Source="{Binding CurrentPicture}"
+                    IsVisible="True" />
+            </Viewbox>
+        </DockPanel>
+    </Panel>
+</Window>

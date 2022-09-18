@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Kinksweeper.ViewModels"
+        xmlns:vs="using:Kinksweeper.Views"
+        Height="750" Width="700"
+        MinWidth="700" MinHeight="600"
+        x:Class="Kinksweeper.Views.MainWindow"
+        Icon="/Assets/block.ico"
+        Title="Kinksweeper"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        WindowStartupLocation="CenterScreen">
+
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.95" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <DockPanel Margin="20">
+            <StackPanel Orientation="Horizontal" Height="30" Margin="10,20" VerticalAlignment="Top"
+                        HorizontalAlignment="Center" DockPanel.Dock="Top">
+
+                <Button 
+                    Margin="10,0"
+                    Width="70"
+                    HorizontalContentAlignment="Center"
+                    Content="Easy"
+                    Command="{Binding SelectEasyConfiguration }" />
+                
+                <Button 
+                    Margin="10,0"
+                    Width="70"
+                    HorizontalContentAlignment="Center"
+                    Content="Medium"
+                    
+                    Command="{Binding SelectMediumConfiguration }" />
+                
+                <Button 
+                    Margin="10,0"
+                    Width="70"
+                    HorizontalContentAlignment="Center"
+                    Content="Hard"
+                    Command="{Binding SelectHardConfiguration }" />
+                
+                <Button 
+                    Margin="10,0"
+                    Width="70"
+                    HorizontalContentAlignment="Center"
+                    Content="Custom"
+                    Command="{Binding SelectCustomConfigurationCommand }" />
+
+                <Button
+                    Margin="10,0"
+                    Content="Restart"
+                    Command="{Binding RestartCommand }" />
+                <Button
+                    Content="Game Rules"
+                    Margin="10, 0"
+                    Name="RulesButton"
+                    Click="RulesButton_OnClick" />
+            </StackPanel>
+            <Viewbox Stretch="Uniform" DockPanel.Dock="Bottom">
+                <vs:MineField Name="MineField" />
+            </Viewbox>
+        </DockPanel>
+    </Panel>
+
+</Window>

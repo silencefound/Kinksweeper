@@ -1,0 +1,48 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        MinWidth="600" MinHeight="550"
+        Width="600" Height="550"
+        MaxWidth="600" MaxHeight="550"
+        x:Class="Kinksweeper.Views.RulesWindow"
+        Title="Game Rules"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        WindowStartupLocation="CenterScreen">
+    
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.95" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        
+        <StackPanel Orientation="Vertical" Margin="40">
+            <TextBlock 
+                Margin="0,0,0,20" 
+                FontSize="24"
+                TextAlignment="Center" 
+                TextWrapping="Wrap"
+                Text="Rules of the game:"
+            />
+            <TextBlock TextWrapping="Wrap" Text="The board is divided into cells, with mines randomly distributed. To end the game you need to open all cells without mines. The number on a cell shows the number of mines adjacent to it. Using this information, you can determine cells that are safe, and cells that contain mines. Cells suspected of being mines can be marked with a flag using the right mouse button."/>
+            <TextBlock/>
+            <TextBlock TextWrapping="Wrap" Text="Unlike traditional Minesweeper, finding a mine here does not mean the end of the game. Instead of this, you receive a punishment - the game randomly selects a tag from a list of kinky tags and shows your random X pictures from rule34.xxx website using this tag. You are required to choose one of the pictures - it could be either what you like more, what picture you have to enjoy, what your partner has to do with you, what you have to send your friend, or any other punishment you can imagine ^^. "/>
+            <TextBlock/>
+            <TextBlock TextWrapping="Wrap" Text="Please, note that found pictures are more or less random and not guaranteed to represent the chosen tag."/>
+            <TextBlock/>
+            <TextBlock TextWrapping="Wrap" Text="At the end of the game, you will see all pictures you selected. I hope you will find something new for yourself, enjoy the images, or suffer enough from your partner doing naughty things to you (•̀ᴗ•́ )و ̑̑"/>
+            <TextBlock/>
+            <TextBlock TextWrapping="Wrap" Text="Default kinks to select from are located in the file 'kinks.txt'. The game requires an Internet connection (obviously) to work correctly."/>
+            <TextBlock/>
+            <TextBlock FontSize="20" TextAlignment="Center" Text="Have fun! :)"/>
+        </StackPanel>
+    </Panel>
+</Window>

@@ -1,0 +1,69 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:behaviors="clr-namespace:Kinksweeper.Behaviors"
+        xmlns:vm="using:Kinksweeper.ViewModels"
+        mc:Ignorable="d"
+        d:DesignWidth="400" d:DesignHeight="250"
+        Width="400" Height="250"
+        MinWidth="400" MinHeight="250"
+        MaxWidth="400" MaxHeight="250"
+        x:Class="Kinksweeper.Views.FieldConfiguratorWindow"
+        Title="Game Settings"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        WindowStartupLocation="CenterScreen">
+    <Design.DataContext>
+        <vm:FieldConfiguratorViewModel />
+    </Design.DataContext>
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.95" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <StackPanel Orientation="Vertical" Margin="40">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="20, 0, 10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Text="Field Size:" />
+                <TextBox HorizontalAlignment="Right">
+                    <Interaction.Behaviors>
+                        <behaviors:LostFocusUpdateBindingBehavior Text="{Binding Dimension}" />
+                    </Interaction.Behaviors>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="20,0,10,0" VerticalAlignment="Center" FontSize="16" Text="Mines count:" />
+                <TextBox>
+                    <Interaction.Behaviors>
+                        <behaviors:LostFocusUpdateBindingBehavior Text="{Binding MinesCount}" />
+                    </Interaction.Behaviors>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="20,0,10,0" VerticalAlignment="Center" FontSize="16" Text="Pictures per punishment:" />
+                <TextBox>
+                    <Interaction.Behaviors>
+                        <behaviors:LostFocusUpdateBindingBehavior Text="{Binding PicsPerPunishment}" />
+                    </Interaction.Behaviors>
+                </TextBox>
+            </StackPanel>
+
+            <Button
+                Margin="0,20"
+                Content="Select"
+                Name="Select"
+                Command="{Binding SelectConfiguration}" 
+                HorizontalAlignment="Center"/>
+        </StackPanel>
+
+
+    </Panel>
+</Window>
